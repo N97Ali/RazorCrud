@@ -1,0 +1,48 @@
+﻿@page
+@model RazorCrud.Pages.Workers.EditModel
+<form method="Post">
+    <input asp-for="worker.Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary ">
+                Create Worker
+            </h2>
+            <hr />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="worker.Name" class="p-0"></label>
+            <input asp-for="worker.Name" class="from-control" />
+            <span asp-validation-for="worker.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="worker.PhoneNo" class="p-0"></label>
+            <input asp-for="worker.PhoneNo" class="from-control" />
+            <span asp-validation-for="worker.PhoneNo" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="worker.Gender" class="p-0"></label>
+            <div>
+                <input type="radio" asp-for="worker.Gender" value="Male" /> Male
+            </div>
+            <div>
+                <input type="radio" asp-for="worker.Gender" value="Female" /> Female
+            </div>
+            <span asp-validation-for="worker.Gender" class="text-danger"></span>
+            <div class="mb-3 row p-3">
+                <label asp-for="worker.Address" class="p-0"></label>
+                <input asp-for="worker.Address" class="from-control" />
+                <span asp-validation-for="worker.Address" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <button type="submit" class="btn btn-primary form-control ">save</button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a asp-page="/Workers/Index" class="btn btn-dark form-control ">Back To List</a>
+                </div>
+            </div>
+        </div>
+</form>
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

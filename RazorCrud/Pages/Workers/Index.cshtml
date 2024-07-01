@@ -1,0 +1,79 @@
+﻿
+@page
+@model RazorCrud.Workers.IndexModel
+ 
+<!Doctype>
+<html>
+<head>
+    <title>Worker List</title>
+</head>
+<body>
+    <div class="Container">
+        <div class="row pt-4 pb-3">
+            <div class="col-6">
+                <h2 class="text-primary">
+                    Worker List
+                </h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-page="/Workers/Create" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i>Add New
+                </a>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Gender
+                    </th>
+                    <th>
+                        PhoneNo
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Worker)
+                {
+                    <tr>
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.Gender
+                        </td>
+                        <td>
+                            @item.PhoneNo
+                        </td>
+                        <td>
+                            @item.Address
+                        </td>
+                        <td>
+                           <a asp-page="/Workers/Edit"  asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                            <a asp-page="/Workers/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+ 
